@@ -34,13 +34,17 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         
+        int roleId = user.getRole().getRoleId();
+        
         HttpSession session = request.getSession();
         session.setAttribute("email", email);
+        session.setAttribute("roleId", roleId);
         
         if (user.getRole().getRoleId() == 1) {
             response.sendRedirect("admin");
         } else {
             response.sendRedirect("notes");
         }
+
     }
 }

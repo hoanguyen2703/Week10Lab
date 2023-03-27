@@ -20,7 +20,6 @@ public class AuthenticationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-
             // code that is executed before the servlet
             HttpServletRequest httpRequest = (HttpServletRequest)request;
             HttpSession session = httpRequest.getSession();
@@ -31,19 +30,19 @@ public class AuthenticationFilter implements Filter {
                 httpResponse.sendRedirect("login");
                 return;
             }
-            
+
+
+
             chain.doFilter(request, response); // execute the servlet
-            
+
             // code that is executed after the servlet
             
         
     }
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         
     }
-
     @Override
     public void destroy() {
        
